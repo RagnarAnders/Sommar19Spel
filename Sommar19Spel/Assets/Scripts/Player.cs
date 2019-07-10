@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
-
+    public GameObject shot;
     public static Player PlayerReference { get; private set; }
 
     private void Awake()
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
         transform.up = rotateTo;
 
+        
         //float AngleRad = Mathf.Atan2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x,
         //    Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y);
 
