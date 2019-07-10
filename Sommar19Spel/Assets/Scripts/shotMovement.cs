@@ -5,15 +5,17 @@ using UnityEngine;
 public class shotMovement : MonoBehaviour
 {
     public float moveSpeed;
+    Vector3 direction;
     // Start is called before the first frame update
     void Start()
     {
+        direction = Player.PlayerReference.transform.up;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up * Time.deltaTime * moveSpeed;
+        transform.position += direction * Time.deltaTime * moveSpeed;
     }
 }
