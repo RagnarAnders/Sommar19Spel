@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
