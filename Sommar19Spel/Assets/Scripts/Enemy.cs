@@ -7,17 +7,32 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float health;
     [SerializeField] private float speed;
-    
+
+    private Transform player;
+
+    private void Start()
+    {
+        player = Player.PlayerReference.transform;
+    }
+
     void Update()
     {
+        Rotate();
         Move();
     }
 
     private void Move()
     {
         float maxDistanceDelta = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, Player.PlayerReference.transform.position, maxDistanceDelta);
+        transform.position = Vector2.MoveTowards(transform.position, player.position, maxDistanceDelta);
+
+    }
+    private void Rotate()
+    {
+        Quaternion rotation = Quaternion.LookRotation(
+        player.transform.position - transform.position,
+        transform.TransformDirection(Vector3.up));
+        transform.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
     }
 
-   
 }
