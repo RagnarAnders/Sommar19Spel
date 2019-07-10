@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
 
-    public Player PlayerReference { get; private set; }
+    public static Player PlayerReference { get; private set; }
 
     private void Awake()
     {

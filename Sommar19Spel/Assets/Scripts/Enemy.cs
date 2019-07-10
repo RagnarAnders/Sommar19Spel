@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float health;
     [SerializeField] private float speed;
-    [SerializeField] private Transform player;
     
     void Update()
     {
@@ -16,6 +15,6 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
-        Vector3.MoveTowards(transform.position, player.transform.position, speed);
+        Vector3.MoveTowards(transform.position, Player.PlayerReference.transform.position, speed);
     }
 }
