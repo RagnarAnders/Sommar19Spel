@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     public GameObject shot;
     public static Player PlayerReference { get; private set; }
+    public int lives;
 
     private void Awake()
     {
@@ -42,5 +43,25 @@ public class Player : MonoBehaviour
         //float AngleDeg = (180 / Mathf.PI) * AngleRad;
 
         //transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+    }
+
+    public void Damaged()
+    {
+        lives--;
+        if(lives == 0)
+        {
+            GameController.instance.GameOver();
+            Died();
+        }
+    }
+
+    public void Died()
+    {
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 }

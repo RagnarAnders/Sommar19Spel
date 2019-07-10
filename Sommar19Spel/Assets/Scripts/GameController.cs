@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 
+    public static GameController instance;
     public int Score { get; set; }
 
     private int PlayerLives;
 
     [SerializeField] private GameObject pauseMenu;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
@@ -29,7 +35,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         HandleHighscore();
         SceneManager.LoadScene(0);
