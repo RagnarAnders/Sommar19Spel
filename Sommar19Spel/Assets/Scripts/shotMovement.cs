@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class shotMovement : MonoBehaviour
 {
-
-    [SerializeField] private float moveSpeed;
+    public float moveSpeed;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +14,6 @@ public class shotMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up * moveSpeed;
+        transform.position += Vector3.up * Time.deltaTime * moveSpeed;
     }
 }
