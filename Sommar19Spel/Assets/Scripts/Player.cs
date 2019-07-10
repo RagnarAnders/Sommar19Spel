@@ -5,7 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
-    public GameObject shot;
     public static Player PlayerReference { get; private set; }
 
     private void Awake()

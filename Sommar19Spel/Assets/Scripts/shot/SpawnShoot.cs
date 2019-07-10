@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shotMovement : MonoBehaviour
+public class SpawnShoot : MonoBehaviour
 {
-    public float moveSpeed;
-    Vector3 direction;
+    public GameObject shot;
     // Start is called before the first frame update
     void Start()
     {
-        direction = Player.PlayerReference.transform.up;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * Time.deltaTime * moveSpeed;
+        if (Input.GetMouseButtonDown(0))
+        {
+            GameObject go = Instantiate(shot, transform.position, transform.rotation);
+            
+        }
+        
     }
 }
