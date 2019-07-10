@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
 
     private void Move()
     {
+        Debug.Log("Move");
         Vector3.MoveTowards(transform.position, Player.PlayerReference.transform.position, speed);
     }
 }
