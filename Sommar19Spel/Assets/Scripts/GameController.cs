@@ -1,18 +1,71 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public int Score { get; set; }
+
+    private int PlayerLives;
+
+    [SerializeField] private GameObject pauseMenu;
+
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateGameState()
     {
-        
+        PlayerLives--;
+        if(PlayerLives == 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        HandleHighscore();
+        SceneManager.LoadScene(0);
+    }
+
+    private void Pause()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void UnPause()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
+    public void MainMenu()
+    {
+        Time.timeScale = 1;
+
+        SceneManager.LoadScene(0);
+    }
+
+    private void HandleHighscore()
+    {
+        if (PlayerPrefs.HasKey("Highscore"))
+        {
+            if(Score > PlayerPrefs.GetInt("Highscore"))
+            {
+                PlayerPrefs.SetInt("Highscore", Score);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Highscore", Score);
+        }
     }
 }
