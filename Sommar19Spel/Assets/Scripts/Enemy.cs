@@ -17,8 +17,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Rotate();
-        Move();
+        if(player != null)
+        {
+            Rotate();
+            Move();
+        }
+      
     }
 
     private void Move()
@@ -45,6 +49,6 @@ public class Enemy : MonoBehaviour
 
     public void OnDestroy()
     {
-        Debug.Log("Destroyed");
+
     }
 }

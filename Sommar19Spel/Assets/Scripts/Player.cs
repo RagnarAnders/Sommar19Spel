@@ -34,21 +34,13 @@ public class Player : MonoBehaviour
         Vector2 rotateTo = (mouseScreenPosition - (Vector2)transform.position).normalized;
 
         transform.up = rotateTo;
-
-        
-        //float AngleRad = Mathf.Atan2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x,
-        //    Camera.main.ScreenToWorldPoint(Input.mousePosition).y - transform.position.y);
-
-        //float AngleDeg = (180 / Mathf.PI) * AngleRad;
-
-        //transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
     }
 
     public void Damaged()
     {
         lives--;
         if(lives == 0)
-        {
+        { 
             GameController.instance.GameOver();
             Died();
         }
