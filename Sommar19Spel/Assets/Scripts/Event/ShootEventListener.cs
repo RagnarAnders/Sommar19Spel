@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnShoot : MonoBehaviour
+public class ShootEventListener : MonoBehaviour
 {
-    public GameObject shot;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,12 +13,6 @@ public class SpawnShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            GameObject go = Instantiate(shot, transform.position, transform.rotation);
-            
-        }
         
     }
 }
