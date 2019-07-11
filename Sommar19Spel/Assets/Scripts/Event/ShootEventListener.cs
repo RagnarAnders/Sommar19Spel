@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootEventListener : MonoBehaviour
+public class ShootEventListener : EventListener<ShootEvent>
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnEvent(ShootEvent shootEvent)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject go = Instantiate(shootEvent.Bullet, shootEvent.SpawnPosition, Quaternion.identity);
+        Destroy(go, 0.5f);
     }
 }
