@@ -31,5 +31,4 @@ public class Spawner : MonoBehaviour
         Instantiate(enemyPrefab, Vector2.zero, Quaternion.identity);
     }
 
-
 }
