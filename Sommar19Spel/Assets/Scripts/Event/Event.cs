@@ -68,6 +68,32 @@ public class ShootEvent : Event<ShootEvent>
     }
 }
 
+public class SpawnEnemyEvent : Event<SpawnEnemyEvent>
+{
+    public GameObject ObjectToSpawn { get; private set; }
+    public float StartX { get; private set; }
+    public float EndX { get; private set; }
+    public float StartY { get; private set; }
+    public float EndY { get; private set; }
+
+    /// <summary>
+    /// This function spawns the object in a random position inside theese four values.
+    /// </summary>
+    /// <param name="objectToSpawn"></param>
+    /// <param name="startX"> startposition of the gamemap</param>
+    /// <param name="endX"> endposition of the gamemap</param>
+    /// <param name="startY"> startposition of the gamemap</param>
+    /// <param name="endY"> endposition of the gamemap</param>
+    public SpawnEnemyEvent(GameObject objectToSpawn, float startX, float endX, float startY, float endY)
+    {
+        ObjectToSpawn = objectToSpawn;
+        StartX = startX;
+        EndX = endX;
+        StartY = startY;
+        EndY = endY;
+    }
+}
+
 public class DeathEvent : Event<DeathEvent>
 {
 
