@@ -48,7 +48,6 @@ public class ShootEvent : Event<ShootEvent>
     public Transform Transform { get; private set; }
     public float Speed { get; private set; }
     public GameObject Bullet { get; private set; }
-    public float Firerate { get; private set; }
     
     /// <summary>
     /// Thees are the attribtes of the weapon.
@@ -58,13 +57,12 @@ public class ShootEvent : Event<ShootEvent>
     /// <param name="speed"> How fast it should go</param>
     /// <param name="bullet"> The bullet itself</param>
     /// <param name="fireRate"> How fast or slow firerate</param>
-    public ShootEvent(Vector2 spawnPosition, Transform transform , float speed, GameObject bullet, float firerate)
+    public ShootEvent(Vector2 spawnPosition, Transform transform , float speed, GameObject bullet)
     {
         SpawnPosition = spawnPosition;
         Transform = transform;
         Speed = speed;
         Bullet = bullet;
-        Firerate = firerate;
     }
 }
 

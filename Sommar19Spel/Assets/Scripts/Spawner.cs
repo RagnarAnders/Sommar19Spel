@@ -10,13 +10,13 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject endSpawnPosition;
 
     private float timer;
-    private 
+    
     // Start is called before the first frame update
     void Start()
     {
         // TO DO: här vill vi göra så att samma event körs flera gånger.
-        //spawnEnemy = new SpawnEnemyEvent(enemyPrefab, startSpawnPosition.transform.position.x,
-        //    endSpawnPosition.transform.position.x, startSpawnPosition.transform.position.y, endSpawnPosition.transform.position.y);
+        // spawnEnemy = new SpawnEnemyEvent(enemyPrefab, startSpawnPosition.transform.position.x,
+        // endSpawnPosition.transform.position.x, startSpawnPosition.transform.position.y, endSpawnPosition.transform.position.y);
     }
 
     // Update is called once per frame

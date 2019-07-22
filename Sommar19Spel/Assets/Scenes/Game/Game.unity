@@ -8249,6 +8249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6584204789962769820, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
         type: 3}
+      propertyPath: states.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584204789962769820, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
       propertyPath: lives
       value: 1
       objectReference: {fileID: 0}
@@ -8258,6 +8263,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7270976267844275086, guid: aa93a3a48f4385447a61d998618c93c9,
         type: 3}
+    - target: {fileID: 6584204789962769820, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: states.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: e2ab0a5446d61b04b860f36ce8c7508c,
+        type: 2}
+    - target: {fileID: 6584204789962769820, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: states.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9af2429ba9aaa6a4ebafe2fb1085463d,
+        type: 2}
+    - target: {fileID: 6584204789962769820, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: states.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9af2429ba9aaa6a4ebafe2fb1085463d,
+        type: 2}
     - target: {fileID: 6584204789962769821, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
         type: 3}
       propertyPath: m_Color.r
@@ -8272,6 +8295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.41304737
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584204789962769823, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e, type: 3}

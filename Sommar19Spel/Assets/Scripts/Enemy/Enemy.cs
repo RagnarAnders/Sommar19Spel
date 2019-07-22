@@ -15,6 +15,11 @@ public class Enemy : MonoBehaviour
         player = Player.PlayerReference.transform;
     }
 
+    private void OnEnable()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+
     void Update()
     {
         if(player != null)

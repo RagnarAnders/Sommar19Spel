@@ -2,39 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : StateMachine
 {
-    [SerializeField] private float speed;
-    [SerializeField] private float fireSpeed;
-    [SerializeField] private float fireRate;
-    [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject spawnPosition;
     public static Player PlayerReference { get; private set; }
-    public int lives;
-    private float fireRateTimer;
+    public GameObject SpawnPosition { get => spawnPosition; private set => spawnPosition = value; }
+    public float Speed { get; set; }
 
-    private void Awake()
+    public int lives;
+    private Rigidbody2D rbd;
+
+    protected override void Awake()
     {
+        
         if(PlayerReference == null)
         {
             PlayerReference = this;
         }
-    }
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButton(0) && fireRateTimer <= 0)
-        {
-            fireRateTimer = fireRate;
-            ShootEvent se = new ShootEvent(spawnPosition.transform.position, transform, fireSpeed, bullet, 0.5f);
-            se.FireEvent();
-        }
-        fireRateTimer -= Time.deltaTime;
+        rbd = GetComponent<Rigidbody2D>();
+        base.Awake();
     }
 
     private void FixedUpdate()
@@ -43,8 +29,11 @@ public class Player : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector2 movement = new Vector2(horizontal, vertical);
 
-        transform.position += (Vector3)movement * speed * Time.deltaTime;
+        //transform.position += (Vector3)movement * Speed * Time.deltaTime;
+        //rbd.AddForce((Vector3)movement * Speed);
 
+        //With velocity the player won't be able to bug itself thro walls it doesn't feel like it's moving on ice.
+        rbd.velocity = movement * Speed;
         Vector2 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 rotateTo = (mouseScreenPosition - (Vector2)transform.position).normalized;
