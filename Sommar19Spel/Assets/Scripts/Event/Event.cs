@@ -45,7 +45,7 @@ public class ParticleEvent : Event<ParticleEvent>
 public class ShootEvent : Event<ShootEvent>
 {
     public Vector2 SpawnPosition { get; private set; }
-    public Vector2 Direction { get; private set; }
+    public Transform Transform { get; private set; }
     public float Speed { get; private set; }
     public GameObject Bullet { get; private set; }
     public float Firerate { get; private set; }
@@ -58,10 +58,10 @@ public class ShootEvent : Event<ShootEvent>
     /// <param name="speed"> How fast it should go</param>
     /// <param name="bullet"> The bullet itself</param>
     /// <param name="fireRate"> How fast or slow firerate</param>
-    public ShootEvent(Vector2 spawnPosition, Vector2 direction, float speed, GameObject bullet, float firerate)
+    public ShootEvent(Vector2 spawnPosition, Transform transform , float speed, GameObject bullet, float firerate)
     {
         SpawnPosition = spawnPosition;
-        Direction = direction;
+        Transform = transform;
         Speed = speed;
         Bullet = bullet;
         Firerate = firerate;

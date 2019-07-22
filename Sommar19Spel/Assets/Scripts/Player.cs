@@ -5,8 +5,13 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float fireSpeed;
+    [SerializeField] private float fireRate;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private GameObject spawnPosition;
     public static Player PlayerReference { get; private set; }
     public int lives;
+    private float fireRateTimer;
 
     private void Awake()
     {
@@ -17,11 +22,22 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (Input.GetMouseButton(0) && fireRateTimer <= 0)
+        {
+            fireRateTimer = fireRate;
+            ShootEvent se = new ShootEvent(spawnPosition.transform.position, transform, fireSpeed, bullet, 0.5f);
+            se.FireEvent();
+        }
+        fireRateTimer -= Time.deltaTime;
+    }
+
+    private void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
