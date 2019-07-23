@@ -10,9 +10,12 @@ public class Enemy : MonoBehaviour
 
     private Transform player;
 
+    public Color Red { get; set; }
+
     private void Start()
     {
         player = Player.PlayerReference.transform;
+        GetComponent<SpriteRenderer>().color = Red;
     }
 
     private void OnEnable()

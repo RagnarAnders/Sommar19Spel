@@ -22,7 +22,7 @@ public class Player : StateMachine
         rbd = GetComponent<Rigidbody2D>();
         base.Awake();
     }
-
+    
     private void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -50,6 +50,7 @@ public class Player : StateMachine
             Died();
         }
     }
+    
 
     public void Died()
     {
