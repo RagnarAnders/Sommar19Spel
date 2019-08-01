@@ -12,9 +12,5 @@ public class DeathEventListener : EventListener<DeathEvent>
         particleEvent.FireEvent();
         Destroy(eventType.entity);
 
-        if (eventType.entity.CompareTag("Player"))
-        {
-            GameController.instance.GameOver();
-        }
     }
 }

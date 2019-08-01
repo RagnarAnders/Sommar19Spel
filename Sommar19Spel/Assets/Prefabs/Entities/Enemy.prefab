@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2339053529910123795}
   - component: {fileID: 3799205735785071555}
   - component: {fileID: 5893810941827873263}
+  - component: {fileID: -2852096068755021339}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -95,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455bfaa2d6a13b24889f04c53a21277e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
   speed: 3
 --- !u!114 &-2339053529910123795
 MonoBehaviour:
@@ -157,3 +157,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-2852096068755021339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2858642007811285352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dceba71eb355ae4686eebbf4bbc9a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  takeDamageParticle: {fileID: 484096988432994734, guid: 3c99a6424888ab949b36602c28f57209,
+    type: 3}
+  deathParticle: {fileID: 1962440224649250925, guid: 360e6a9ec618a8542b9d597e9d4761c1,
+    type: 3}
+  takeDamageSound: {fileID: 8300000, guid: bf7edee4126723f4287a8f993c2f5e2c, type: 3}
+  deathSound: {fileID: 8300000, guid: ed8fe58a68148c34394121ad09d45a4d, type: 3}
