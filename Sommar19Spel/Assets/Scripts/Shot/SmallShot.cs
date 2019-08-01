@@ -10,10 +10,11 @@ public class SmallShot : Shot
         {
             return;
         }
-        Destroy(gameObject);
         if (collision.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(50);
         }
+        Destroy(gameObject);
+
     }
 }
