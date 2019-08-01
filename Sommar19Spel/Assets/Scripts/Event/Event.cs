@@ -34,20 +34,24 @@ public abstract class Event<T> where T : Event<T>
 
 public class SoundEvent : Event<SoundEvent>
 {
+    public Transform entity;
     public AudioClip audioClip;
 
-    public SoundEvent(AudioClip audioClip)
+    public SoundEvent(Transform entity, AudioClip audioClip)
     {
         this.audioClip = audioClip;
+        this.entity = entity;
     }
 }
 
 public class ParticleEvent : Event<ParticleEvent>
 {
+    public Transform entity;
     public ParticleSystem particle;
 
-    public ParticleEvent(ParticleSystem particle)
+    public ParticleEvent(Transform entity, ParticleSystem particle)
     {
+        this.entity = entity;
         this.particle = particle;
     }
 }
