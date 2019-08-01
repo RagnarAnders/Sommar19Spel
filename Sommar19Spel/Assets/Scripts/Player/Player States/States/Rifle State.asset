@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb18a4f4d89df934ba430253b67ebfc3, type: 3}
   m_Name: Rifle State
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7
   bullet: {fileID: 7270976267844275086, guid: aa93a3a48f4385447a61d998618c93c9, type: 3}
   fireRate: 0.1
   fireSpeed: 10
