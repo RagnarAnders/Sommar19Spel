@@ -94,5 +94,14 @@ public class SpawnEnemyEvent : Event<SpawnEnemyEvent>
 
 public class DeathEvent : Event<DeathEvent>
 {
+    public GameObject entity;
+    public AudioClip deathSound;
+    public ParticleSystem deathParticle;
 
+    public DeathEvent(GameObject entity, AudioClip deathSound, ParticleSystem deathParticle)
+    {
+        this.entity = entity;
+        this.deathSound = deathSound;
+        this.deathParticle = deathParticle;
+    }
 }
