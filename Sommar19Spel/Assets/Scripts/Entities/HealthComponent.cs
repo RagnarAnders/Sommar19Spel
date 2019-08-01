@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-
     public int Health { get; set; }
 
     [SerializeField] private int maxHealth;
@@ -25,6 +24,12 @@ public class HealthComponent : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            TakeDamageEvent takeDamageEvent = new TakeDamageEvent(this.gameObject, takeDamageSound, takeDamageParticle);
+            takeDamageEvent.FireEvent();
+        }
+
     }
 
     void Die()

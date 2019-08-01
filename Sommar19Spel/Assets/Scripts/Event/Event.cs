@@ -34,12 +34,22 @@ public abstract class Event<T> where T : Event<T>
 
 public class SoundEvent : Event<SoundEvent>
 {
+    public AudioClip audioClip;
 
+    public SoundEvent(AudioClip audioClip)
+    {
+        this.audioClip = audioClip;
+    }
 }
 
 public class ParticleEvent : Event<ParticleEvent>
 {
+    public ParticleSystem particle;
 
+    public ParticleEvent(ParticleSystem particle)
+    {
+        this.particle = particle;
+    }
 }
 
 public class ShootEvent : Event<ShootEvent>
@@ -103,5 +113,19 @@ public class DeathEvent : Event<DeathEvent>
         this.entity = entity;
         this.deathSound = deathSound;
         this.deathParticle = deathParticle;
+    }
+}
+
+public class TakeDamageEvent : Event<TakeDamageEvent>
+{
+    public GameObject entity;
+    public AudioClip sound;
+    public ParticleSystem particle;
+
+    public TakeDamageEvent(GameObject entity, AudioClip sound, ParticleSystem particle)
+    {
+        this.entity = entity;
+        this.sound = sound;
+        this.particle = particle;
     }
 }
