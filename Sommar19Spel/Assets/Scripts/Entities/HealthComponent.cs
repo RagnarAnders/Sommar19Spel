@@ -19,6 +19,7 @@ public class HealthComponent : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        Debug.Log("TakeDamage");
         Health -= amount;
         if(Health <= 0)
         {

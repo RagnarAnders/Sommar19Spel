@@ -13,7 +13,7 @@ public class SmallShot : Shot
         Destroy(gameObject);
         if (collision.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<HealthComponent>().TakeDamage(50);
         }
     }
 }
