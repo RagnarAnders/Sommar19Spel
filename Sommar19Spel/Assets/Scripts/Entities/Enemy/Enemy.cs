@@ -56,6 +56,6 @@ public class Enemy : MonoBehaviour
 
     public void OnDestroy()
     {
-
+        HighScore.HighscoreReference.UpdateScore(1);
     }
 }

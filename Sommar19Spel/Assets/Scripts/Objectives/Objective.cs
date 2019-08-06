@@ -17,4 +17,9 @@ public class Objective : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnDestroy()
+    {
+        HighScore.HighscoreReference.UpdateScore(10);
+    }
 }
