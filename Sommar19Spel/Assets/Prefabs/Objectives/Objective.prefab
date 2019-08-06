@@ -95,3 +95,4 @@ MonoBehaviour:
   particle: {fileID: 5627725059394161464, guid: 2d64d069072b5444780dfd9523f6bfc3,
     type: 3}
   audio: {fileID: 8300000, guid: 52cca2a137db6fc4aabdddb20ad2e580, type: 3}
+  timer: 7
