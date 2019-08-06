@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Player/Rifle")]
 public class Rifle : PlayerBaseState
 {
+    [SerializeField] private AudioClip shotSound;
     public override void Enter()
     {
         base.Enter();
@@ -15,6 +16,8 @@ public class Rifle : PlayerBaseState
         {
             //ShootRifle();
             Shoot(bullet, fireSpeed);
+            SoundEvent sound = new SoundEvent(owner.transform, shotSound);
+            sound.FireEvent();
         }
         else if (Input.GetKeyDown(KeyCode.Tab))
         {
