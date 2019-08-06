@@ -6231,6 +6231,7 @@ GameObject:
   - component: {fileID: 1388039987}
   - component: {fileID: 1388039986}
   - component: {fileID: 1388039988}
+  - component: {fileID: 1388039989}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -6272,7 +6273,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388039985}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d96db87b03aff4f4fb7e5e687341ec4d, type: 3}
   m_Name: 
@@ -6280,6 +6281,23 @@ MonoBehaviour:
   enemyPrefab: {fileID: 2858642007811285352, guid: f044e55d8af7d984a8ff6dc177d77568,
     type: 3}
   spawnRate: 0.5
+  startSpawnPosition: {fileID: 225614588}
+  endSpawnPosition: {fileID: 88446850}
+--- !u!114 &1388039989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388039985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96db87b03aff4f4fb7e5e687341ec4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 921817422601668088, guid: ad7c05a9197dd5a4897ee5e4bfc111e4,
+    type: 3}
+  spawnRate: 20
   startSpawnPosition: {fileID: 225614588}
   endSpawnPosition: {fileID: 88446850}
 --- !u!1 &1640099448
@@ -8286,6 +8304,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911529650445748305, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1035924852553314577, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
         type: 3}

@@ -80,7 +80,7 @@ public class ShootEvent : Event<ShootEvent>
     }
 }
 
-public class SpawnEnemyEvent : Event<SpawnEnemyEvent>
+public class SpawnEvent : Event<SpawnEvent>
 {
     public GameObject ObjectToSpawn { get; private set; }
     public float StartX { get; private set; }
@@ -96,7 +96,7 @@ public class SpawnEnemyEvent : Event<SpawnEnemyEvent>
     /// <param name="endX"> endposition of the gamemap</param>
     /// <param name="startY"> startposition of the gamemap</param>
     /// <param name="endY"> endposition of the gamemap</param>
-    public SpawnEnemyEvent(GameObject objectToSpawn, float startX, float endX, float startY, float endY)
+    public SpawnEvent(GameObject objectToSpawn, float startX, float endX, float startY, float endY)
     {
         ObjectToSpawn = objectToSpawn;
         StartX = startX;

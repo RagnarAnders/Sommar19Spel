@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
         if(timer <= 0)
         {
             //Spawn();
-            SpawnEnemyEvent spawnEnemy = new SpawnEnemyEvent(enemyPrefab, startSpawnPosition.transform.position.x,
+            SpawnEvent spawnEnemy = new SpawnEvent(enemyPrefab, startSpawnPosition.transform.position.x,
             endSpawnPosition.transform.position.x, startSpawnPosition.transform.position.y, endSpawnPosition.transform.position.y); ;
             spawnEnemy.FireEvent();
             timer = spawnRate;

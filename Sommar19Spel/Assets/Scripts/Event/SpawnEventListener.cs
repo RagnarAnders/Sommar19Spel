@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnemyEventListener : EventListener<SpawnEnemyEvent>
+public class SpawnEventListener : EventListener<SpawnEvent>
 {
     [SerializeField] private LayerMask layerMask;
     private GameObject spawnObject;
-    protected override void OnEvent(SpawnEnemyEvent spawn)
+    protected override void OnEvent(SpawnEvent spawn)
     {
         spawnObject = spawn.ObjectToSpawn;
         GameObject go = Instantiate(spawn.ObjectToSpawn, getRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY), Quaternion.identity);

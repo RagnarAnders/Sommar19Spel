@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ShootEventListener : EventListener<ShootEvent>
 {
-
-
-
     protected override void OnEvent(ShootEvent shootEvent)
     {
         GameObject go = Instantiate(shootEvent.Bullet, shootEvent.SpawnPosition, shootEvent.Transform.rotation);
