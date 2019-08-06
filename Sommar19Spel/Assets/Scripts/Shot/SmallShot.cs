@@ -13,6 +13,7 @@ public class SmallShot : Shot
         if (collision.CompareTag("Enemy"))
         {
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(50);
+            ShakeCamera.ShakeCameraRef.enabled = true;
             //lägg till en screenshake här
         }
         Destroy(gameObject);
