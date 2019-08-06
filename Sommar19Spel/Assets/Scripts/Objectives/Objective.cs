@@ -19,13 +19,9 @@ public class Objective : MonoBehaviour
             part.FireEvent();
             SoundEvent sound = new SoundEvent(gameObject.transform, audio);
             sound.FireEvent();
+            HighScore.HighscoreReference.UpdateScore(10);
             Destroy(gameObject);
         }
         timer -= Time.deltaTime;
-    }
-
-    private void OnDestroy()
-    {
-        HighScore.HighscoreReference.UpdateScore(10);
     }
 }
