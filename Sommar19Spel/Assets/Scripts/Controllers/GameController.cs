@@ -62,6 +62,7 @@ public class GameController : MonoBehaviour
 
     private void HandleHighscore()
     {
+        Score = HighScore.HighscoreReference.score;
         if (PlayerPrefs.HasKey("Highscore"))
         {
             if(Score > PlayerPrefs.GetInt("Highscore"))
