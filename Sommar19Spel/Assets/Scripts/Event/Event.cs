@@ -106,6 +106,15 @@ public class SpawnEvent : Event<SpawnEvent>
     }
 }
 
+public class SpawnEnemyEvent : SpawnEvent
+{
+    public SpawnEnemyEvent(GameObject objectToSpawn, float startX, float endX, float startY, float endY) 
+        : base(objectToSpawn, startX, endX, startY, endY)
+    {
+
+    }
+}
+
 public class DeathEvent : Event<DeathEvent>
 {
     public GameObject entity;

@@ -7,6 +7,9 @@ public class ParticleListener : EventListener<ParticleEvent>
     protected override void OnEvent(ParticleEvent eventType)
     {
         Debug.Log("ParticleListener");
-        Instantiate(eventType.particle, eventType.entity.position, Quaternion.identity);
+        ParticleSystem p = Instantiate(eventType.particle, eventType.entity.position, Quaternion.identity);
+        //p.GetComponent<GameObject>();
+        
+        Destroy(p.gameObject, eventType.particle.main.duration);
     }
 }
