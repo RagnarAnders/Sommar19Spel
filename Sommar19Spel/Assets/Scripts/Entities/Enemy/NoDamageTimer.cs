@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class NoDamageTimer : MonoBehaviour
 {
-    [SerializeField] private float timer;
+    [SerializeField] private float timer, countDown;
     private float changeCollorTimer;
     private bool color;
     private Color red;
-    private Enemy enemy;
     private void Start()
     {
         red = GetComponent<SpriteRenderer>().color;
         color = false;
         changeCollorTimer = timer / 5;
-        enemy = gameObject.GetComponent<Enemy>();
     }
     private void Update()
     {
-        timer -= Time.deltaTime;
+        countDown -= Time.deltaTime;
         changeCollorTimer -= Time.deltaTime;
-        if (timer <= 0)
+        if (countDown <= 0)
         {
-            enemy.enabled = true;
-            enemy.Red = red;
+            gameObject.GetComponent<Enemy>().enabled = true;
+            GetComponent<SpriteRenderer>().color = red;
+            countDown = timer;
             enabled = false;
         }
         if (changeCollorTimer <= 0)

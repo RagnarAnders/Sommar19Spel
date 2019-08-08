@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     [SerializeField] private float speed;
-
     private Transform player;
-
-    public Color Red { get; set; }
-
     private void Start()
     {
         player = Player.PlayerReference.transform;
-        GetComponent<SpriteRenderer>().color = Red;
     }
 
     private void OnEnable()
