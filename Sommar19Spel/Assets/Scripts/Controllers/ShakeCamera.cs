@@ -4,39 +4,46 @@ using UnityEngine;
 
 public class ShakeCamera : MonoBehaviour
 {
-    [SerializeField] private float shakeDuration;
-    [SerializeField] private float shakeMagnitude;
-    [SerializeField] private float dampningSpeed;
     public static ShakeCamera ShakeCameraRef { private set; get; }
-    private float timer;
-    private Vector3 startPosition;
-    private Transform cameraTransform;
+    private Camera mainCam;
+    private float shakeAmount;
     private void Awake()
     {
         if(ShakeCameraRef == null)
         {
             ShakeCameraRef = this;
         }
-        cameraTransform = GetComponent<Transform>();
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        startPosition = transform.position;
-        timer = shakeDuration;
-    }
-    private void Update()
-    {
-        if (timer > 0)
+        if(mainCam == null)
         {
-            transform.localPosition = startPosition + Random.insideUnitSphere * shakeMagnitude;
-            timer -= Time.deltaTime / dampningSpeed;
+            mainCam = Camera.main;
         }
-        else
+    }
+    public void Shake(float amt, float lenght)
+    {
+        shakeAmount = amt;
+
+        InvokeRepeating("BeginShake", 0, 0.01f);
+        Invoke("StopShake", lenght);
+    }
+
+    private void BeginShake()
+    {
+        if(shakeAmount > 0)
         {
-            transform.localPosition = startPosition;
-            timer = shakeDuration;
-            enabled = false;
+            Vector3 camPos = mainCam.transform.position;
+
+            float offsetX = Random.value * shakeAmount * 2 - shakeAmount;
+            float offsetY = Random.value * shakeAmount * 2 - shakeAmount;
+            camPos.y = offsetY;
+            camPos.x = offsetX;
+
+            mainCam.transform.position = camPos;        
         }
+    }
+
+    private void StopShake()
+    {
+        CancelInvoke("BeginShake");
+        mainCam.transform.localPosition = Vector3.zero;
     }
 }
