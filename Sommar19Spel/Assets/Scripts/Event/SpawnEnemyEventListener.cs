@@ -13,7 +13,7 @@ public class SpawnEnemyEventListener : SpawnEventListener
         {
             return;
         }
-        GameObject enemy = EnemyManager.EnemyManagerRef.getEnemy();
+        GameObject enemy = EnemyManager.EnemyManagerRef.GetEnemy();
         if (enemy == null)
         {
             GameObject go = Instantiate(spawn.ObjectToSpawn, getRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY), Quaternion.identity);
