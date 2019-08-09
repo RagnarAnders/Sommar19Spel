@@ -8,10 +8,11 @@ public class NoDamageTimer : MonoBehaviour
     private float changeCollorTimer, countDown;
     private bool color;
     private Color red;
-    private void Start()
+    private void Awake()
     {
         red = GetComponent<SpriteRenderer>().color;
         color = false;
+        countDown = timer;
         changeCollorTimer = timer / 5;
     }
     private void Update()
