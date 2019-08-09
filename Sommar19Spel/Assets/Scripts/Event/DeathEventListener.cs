@@ -11,7 +11,8 @@ public class DeathEventListener : EventListener<DeathEvent>
         soundEvent.FireEvent();
         ParticleEvent particleEvent = new ParticleEvent(eventType.entity.transform, eventType.deathParticle);
         particleEvent.FireEvent();
-        eventType.entity.SetActive(false);
-        EnemyManager.EnemyManagerRef.AddToList(eventType.entity);
+        Destroy(eventType.entity);
+        //eventType.entity.SetActive(false);
+        //EnemyManager.EnemyManagerRef.AddToList(eventType.entity);
     }
 }

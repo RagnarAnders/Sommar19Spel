@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NoDamageTimer : MonoBehaviour
 {
-    [SerializeField] private float timer, countDown;
-    private float changeCollorTimer;
+    [SerializeField] private float timer;
+    private float changeCollorTimer, countDown;
     private bool color;
     private Color red;
     private void Start()
