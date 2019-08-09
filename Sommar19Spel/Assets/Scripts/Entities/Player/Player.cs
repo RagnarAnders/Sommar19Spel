@@ -28,7 +28,7 @@ public class Player : StateMachine
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(horizontal, vertical);
-        rbd.velocity = movement * Speed;
+        rbd.velocity = movement.normalized * Speed;
        
         
     }
