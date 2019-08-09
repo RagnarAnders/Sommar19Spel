@@ -20,12 +20,13 @@ public class NoDamageTimer : MonoBehaviour
         changeCollorTimer -= Time.deltaTime;
         if (countDown <= 0)
         {
-            gameObject.GetComponent<Enemy>().enabled = true;
             GetComponent<SpriteRenderer>().color = red;
             countDown = timer;
+            changeCollorTimer = timer / 5;
             enabled = false;
+            gameObject.GetComponent<Enemy>().enabled = true;
         }
-        if (changeCollorTimer <= 0)
+        else if (changeCollorTimer <= 0)
         {
             if (color)
             {

@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
         }
     }
     
-    public void addToList(GameObject enemy)
+    public void AddToList(GameObject enemy)
     {
         if (!enemy.GetComponent<Enemy>())
         {
@@ -33,14 +33,14 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public bool enemyIsEmpty()
+    public bool EnemyIsEmpty()
     {
         return enemies.Count == 0;
     }
 
-    public GameObject getEnemy()
+    public GameObject GetEnemy()
     {
-        if(enemyIsEmpty())
+        if(EnemyIsEmpty())
         {
             return null;
         }
