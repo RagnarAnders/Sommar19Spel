@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455bfaa2d6a13b24889f04c53a21277e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.4028235e+38
+  speed: 3
 --- !u!114 &218348613122315844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,12 +104,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8873874809387636161}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 178e15f9560118f40989c0bf0f355ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 1e+29
+  timer: 0.3
 --- !u!61 &7508842678316382058
 BoxCollider2D:
   m_ObjectHideFlags: 0

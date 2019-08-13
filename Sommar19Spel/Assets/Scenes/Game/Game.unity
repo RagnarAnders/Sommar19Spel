@@ -8581,5 +8581,20 @@ PrefabInstance:
       propertyPath: spawnPosition
       value: 
       objectReference: {fileID: 774154371}
+    - target: {fileID: 1772741281757464630, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772741281757464630, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: dashTimer
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911529650445748308, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e, type: 3}
