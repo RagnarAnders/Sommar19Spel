@@ -14,9 +14,6 @@ public class PlayerBaseState : State
     protected float fireRateTimer;
     private float countDown;
     private bool isDashing;
-    
-
-
     protected Player owner;
 
     public override void Initialize(StateMachine owner)
