@@ -6,25 +6,21 @@ public class Shot : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     private Vector3 direction;
+    protected Vector2 Velocity;
     // Start is called before the first frame update
     void Start()
     {
+
         direction = Player.PlayerReference.transform.up;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += direction * Time.deltaTime * moveSpeed;
+        Debug.Log("Update Velocity: " + Velocity);
+        Velocity = direction * Time.deltaTime * moveSpeed;
+        transform.position += (Vector3) Velocity;
     }
 
-    virtual protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.Equals(Player.PlayerReference.GetComponent<Collider2D>()))
-        {
-            return;
-        }
-        Destroy(gameObject);
-    }
-
+    
 }

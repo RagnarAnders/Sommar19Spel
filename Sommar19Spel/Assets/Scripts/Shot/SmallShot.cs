@@ -2,20 +2,48 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallShot : Shot
+public class SmallShot : MonoBehaviour
 {
-    override protected void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private float moveSpeed;
+    Vector2 Velocity;
+    bool hit = false;
+    Vector2 direction;
+
+    void Start()
     {
-        if (collision.Equals(Player.PlayerReference.GetComponent<Collider2D>()))
-        {
-            return;
-        }
-        if (collision.CompareTag("Enemy"))
+
+        direction = Player.PlayerReference.transform.up;
+    }
+
+    private void Update()
+    {
+        Velocity = direction * Time.deltaTime * moveSpeed;
+        transform.position += (Vector3)Velocity;
+    }
+
+    protected void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log("Collision");
+        if (collision.otherCollider.CompareTag("Enemy") || collision.Equals(Player.PlayerReference.GetComponent<Collider2D>()))
         {
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(50);
             ShakeCamera.ShakeCameraRef.Shake(0.01f, 0.2f);
-            //lägg till en screenshake här
+
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        else
+        {
+
+            Debug.Log("Velocity Before: " + Velocity);
+
+
+            direction = Vector2.Reflect(Velocity, collision.contacts[0].normal);
+            Velocity = Vector2.zero;
+            Debug.Log("Velocity After: " + Velocity);
+
+
+        }
+
+
     }
 }
