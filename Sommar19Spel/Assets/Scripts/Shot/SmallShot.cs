@@ -35,7 +35,8 @@ public class SmallShot : MonoBehaviour
             float rot = Mathf.Atan2(v.x, v.y) * Mathf.Rad2Deg;
             Debug.DrawRay(hit.point, v, Color.red);
             Debug.Log("Rotation: " + rot);
-            transform.eulerAngles = new Vector3(0, 0, rot);
+            transform.up = v;
+            //transform.eulerAngles = new Vector3(0, 0, rot);
         }
     }
 
