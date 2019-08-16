@@ -76,6 +76,7 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("Highscore", score);
         }
+        PlayerPrefs.DeleteAll();
     }
 
     public void UpdateScore(int addScore)

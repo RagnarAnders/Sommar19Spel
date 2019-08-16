@@ -17,12 +17,12 @@ public class SpawnEnemyEventListener : SpawnEventListener
         if (enemy == null)
         {
             GameObject go = Instantiate(spawn.ObjectToSpawn, GetRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY), Quaternion.identity);
-            Debug.Log(spawn.ObjectToSpawn.name);
-            go.GetComponent<Enemy>().Name = spawn.ObjectToSpawn.name;
-            EnemyManager.EnemyManagerRef.AddAliveEnemies(go);
+            //EnemyManager.EnemyManagerRef.AddAliveEnemiesToDictionary(spawn.ObjectToSpawn);
         }
         else
         {
+            //EnemyManager.EnemyManagerRef.AddAliveEnemiesToDictionary(spawn.ObjectToSpawn);
+
             enemy.transform.position = GetRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY);
             enemy.GetComponent<NoDamageTimer>().enabled = true;
             enemy.GetComponent<Enemy>().enabled = false;
