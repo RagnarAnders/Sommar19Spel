@@ -87,7 +87,7 @@ public class EnemyManager : MonoBehaviour
 
 
 
-
+    //Kan användas till andra listor och managers
     //public GameObject RemoveDeadEnemy(GameObject enemy)
     //{
     //    Queue<GameObject> tempEnemies = deadEnemies[enemy.name];

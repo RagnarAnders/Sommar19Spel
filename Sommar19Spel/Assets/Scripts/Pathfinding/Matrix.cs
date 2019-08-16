@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Matrix : MonoBehaviour
 {
-    Node[,] nodes;
+    private int x, y;
+    public Node[][] matrixNodes;
 
     Grid grid;
 
     private void CreateMatrix()
     {
+    }
+    public void GetPosition(Node position)
+    {
+        for(int x = 0; x < 10; x++)
+        {
+
+        }
     }
 }

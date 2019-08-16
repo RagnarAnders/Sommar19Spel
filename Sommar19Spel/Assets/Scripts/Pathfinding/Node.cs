@@ -12,10 +12,13 @@ public class Node
 {
     Vector2 position;
     NodeValue walkable;
+    private List<Node> nodes;
 
     public Node(Vector2 position, NodeValue walkable)
     {
         this.position = position;
         this.walkable = walkable;
     }
+
+
 }
