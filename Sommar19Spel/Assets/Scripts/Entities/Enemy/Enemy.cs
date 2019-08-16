@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void OnDisable()
+    private void OnDisable()
     {
         GameController.Instance.UpdateScore(1);
     }
