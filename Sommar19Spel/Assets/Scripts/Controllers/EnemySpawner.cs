@@ -21,11 +21,6 @@ public class EnemySpawner : MonoBehaviour
         InvokeRepeating("Spawn", 2f ,spawnRate);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void Spawn()
     {
         SpawnEnemyEvent spawnEnemy = new SpawnEnemyEvent(enemyPrefab, startSpawnPosition.transform.position.x,

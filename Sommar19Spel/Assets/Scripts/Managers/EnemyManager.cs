@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager EnemyManagerRef { get; private set; }
     private Dictionary<string, Queue<GameObject>> deadEnemies;
-    private Dictionary<string, GameObject> aliveEnemies;
+    private Dictionary<GameObject, GameObject> aliveEnemies;
     private Queue<GameObject> enemies;
     // Start is called before the first frame update
     void Awake()
@@ -25,22 +25,26 @@ public class EnemyManager : MonoBehaviour
         }
         if(aliveEnemies == null)
         {
-            aliveEnemies = new Dictionary<string, GameObject>();
+            aliveEnemies = new Dictionary<GameObject, GameObject>();
         }
     }
 
-    public GameObject GetObject(GameObject enemy)
+    public GameObject GetEnemy(GameObject enemy)
     {
         Queue<GameObject> dEnemies;
 
-        string name = enemy.name;
+        string name = enemy.name + "(Clone)";
         if (deadEnemies.ContainsKey(name))
         {
             dEnemies = deadEnemies[name];
+            if(dEnemies.Count == 0)
+            {
+                return null;
+            }
             GameObject e = dEnemies.Dequeue();
             deadEnemies.Remove(name);
             deadEnemies.Add(name, dEnemies);
-            aliveEnemies.Add(e.name, e);
+            aliveEnemies.Add(e, e);
             return e;
         }
         else
@@ -55,16 +59,17 @@ public class EnemyManager : MonoBehaviour
         {
             return;
         }
-        aliveEnemies.Add(enemy.name, enemy);
+        aliveEnemies.Add(enemy, enemy);
     }
 
-    public void AddDeadEnemiesToDictionary(GameObject enemy, string name)
+    public void AddDeadEnemiesToDictionary(GameObject enemy)
     {
         if (!enemy.GetComponent<Enemy>())
         {
             Debug.Log("!ENEMY");
             return;
         }
+        string name = enemy.name;
         Queue<GameObject> tempEnemies;
         if (deadEnemies.ContainsKey(name))
         {
@@ -77,40 +82,40 @@ public class EnemyManager : MonoBehaviour
         }
         tempEnemies.Enqueue(enemy);
         deadEnemies.Add(name, tempEnemies);
-        aliveEnemies.Remove(enemy.name);
+        aliveEnemies.Remove(enemy);
     }
 
 
 
 
-    public GameObject RemoveDeadEnemy(GameObject enemy)
-    {
-        Queue<GameObject> tempEnemies = deadEnemies[enemy.name];
-        GameObject e = tempEnemies.Dequeue();
-        aliveEnemies.Add(e.name, e);
-        return e;
-    }
+    //public GameObject RemoveDeadEnemy(GameObject enemy)
+    //{
+    //    Queue<GameObject> tempEnemies = deadEnemies[enemy.name];
+    //    GameObject e = tempEnemies.Dequeue();
+    //    aliveEnemies.Add(e.name, e);
+    //    return e;
+    //}
     
-    public void AddToList(GameObject enemy)
-    {
-        if (!enemy.GetComponent<Enemy>())
-        {
-            return;
-        }
-        else
-        {
-            enemies.Enqueue(enemy);
-        }
-    }
+    //public void AddToList(GameObject enemy)
+    //{
+    //    if (!enemy.GetComponent<Enemy>())
+    //    {
+    //        return;
+    //    }
+    //    else
+    //    {
+    //        enemies.Enqueue(enemy);
+    //    }
+    //}
 
-    public bool EnemyIsEmpty()
-    {
-        return enemies.Count == 0;
-    }
+    //public bool EnemyIsEmpty()
+    //{
+    //    return enemies.Count == 0;
+    //}
 
-    public GameObject GetEnemy()
-    {
-        return EnemyIsEmpty() ? null : enemies.Dequeue();
-    }
+    //public GameObject GetEnemy()
+    //{
+    //    return EnemyIsEmpty() ? null : enemies.Dequeue();
+    //}
 
 }

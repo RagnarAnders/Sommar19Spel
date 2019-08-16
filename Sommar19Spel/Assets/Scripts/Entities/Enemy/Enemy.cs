@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed;
-    public string Name { get; set; }
     private Transform player;
     private void Start()
     {

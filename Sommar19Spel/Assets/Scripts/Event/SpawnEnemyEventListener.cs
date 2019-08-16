@@ -13,21 +13,20 @@ public class SpawnEnemyEventListener : SpawnEventListener
         {
             return;
         }
-        GameObject enemy = EnemyManager.EnemyManagerRef.GetObject(spawn.ObjectToSpawn);
+        GameObject enemy = EnemyManager.EnemyManagerRef.GetEnemy(spawn.ObjectToSpawn);
         if (enemy == null)
         {
+            Debug.Log("New Enemey");
             GameObject go = Instantiate(spawn.ObjectToSpawn, GetRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY), Quaternion.identity);
-            //EnemyManager.EnemyManagerRef.AddAliveEnemiesToDictionary(spawn.ObjectToSpawn);
+            EnemyManager.EnemyManagerRef.AddAliveEnemies(go);
         }
         else
         {
-            //EnemyManager.EnemyManagerRef.AddAliveEnemiesToDictionary(spawn.ObjectToSpawn);
-
+            Debug.Log("Old Enemey");
             enemy.transform.position = GetRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY);
             enemy.GetComponent<NoDamageTimer>().enabled = true;
             enemy.GetComponent<Enemy>().enabled = false;
             enemy.SetActive(true);
         }
-
     }
 }
