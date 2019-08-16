@@ -6,7 +6,7 @@ public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager EnemyManagerRef { get; private set; }
     private Dictionary<string, Queue<GameObject>> deadEnemies;
-    private Dictionary<string, Queue<GameObject>> aliveEnemies;
+    private Dictionary<string, GameObject> aliveEnemies;
     private Queue<GameObject> enemies;
     // Start is called before the first frame update
     void Awake()
@@ -23,16 +23,25 @@ public class EnemyManager : MonoBehaviour
         {
             deadEnemies = new Dictionary<string, Queue<GameObject>>();
         }
+        if(aliveEnemies == null)
+        {
+            aliveEnemies = new Dictionary<string, GameObject>();
+        }
     }
 
     public GameObject GetObject(GameObject enemy)
     {
-        Queue<GameObject> tempEnemies;
-        if (deadEnemies.ContainsKey(enemy.name))
+        Queue<GameObject> dEnemies;
+
+        string name = enemy.name;
+        if (deadEnemies.ContainsKey(name))
         {
-            tempEnemies = deadEnemies[enemy.name];
-            return tempEnemies.Dequeue();
-            //return 
+            dEnemies = deadEnemies[name];
+            GameObject e = dEnemies.Dequeue();
+            deadEnemies.Remove(name);
+            deadEnemies.Add(name, dEnemies);
+            aliveEnemies.Add(e.name, e);
+            return e;
         }
         else
         {
@@ -40,37 +49,27 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void AddAliveEnemiesToDictionary(GameObject enemy)
+    public void AddAliveEnemies(GameObject enemy)
     {
         if (!enemy.GetComponent<Enemy>())
         {
             return;
         }
-        string name = enemy.name;
-        Queue<GameObject> tempEnemies;
-        if (aliveEnemies.ContainsKey(name))
-        {
-            tempEnemies = deadEnemies[name];
-        }
-        else
-        {
-            tempEnemies = new Queue<GameObject>();
-        }
-        tempEnemies.Enqueue(enemy);
-        aliveEnemies.Add(name, tempEnemies);
+        aliveEnemies.Add(enemy.name, enemy);
     }
 
-    public void AddDeadEnemiesToDictionary(GameObject enemy)
+    public void AddDeadEnemiesToDictionary(GameObject enemy, string name)
     {
         if (!enemy.GetComponent<Enemy>())
         {
+            Debug.Log("!ENEMY");
             return;
         }
-        string name = enemy.name;
         Queue<GameObject> tempEnemies;
         if (deadEnemies.ContainsKey(name))
         {
             tempEnemies = deadEnemies[name];
+            deadEnemies.Remove(name);
         }
         else
         {
@@ -78,11 +77,18 @@ public class EnemyManager : MonoBehaviour
         }
         tempEnemies.Enqueue(enemy);
         deadEnemies.Add(name, tempEnemies);
+        aliveEnemies.Remove(enemy.name);
     }
 
-    public void RemoveDeadEnemy(GameObject enemy)
-    {
 
+
+
+    public GameObject RemoveDeadEnemy(GameObject enemy)
+    {
+        Queue<GameObject> tempEnemies = deadEnemies[enemy.name];
+        GameObject e = tempEnemies.Dequeue();
+        aliveEnemies.Add(e.name, e);
+        return e;
     }
     
     public void AddToList(GameObject enemy)

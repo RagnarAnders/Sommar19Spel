@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed;
+    public string Name { get; set; }
     private Transform player;
     private void Start()
     {
@@ -50,5 +51,6 @@ public class Enemy : MonoBehaviour
     public void OnDisable()
     {
         GameController.Instance.UpdateScore(1);
+        //EnemyManager.EnemyManagerRef.AddDeadEnemiesToDictionary(gameObject, Name);
     }
 }
