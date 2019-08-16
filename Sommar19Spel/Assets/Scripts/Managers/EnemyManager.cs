@@ -25,11 +25,18 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void GetObject(GameObject enemy)
+    public GameObject GetObject(GameObject enemy)
     {
+        Queue<GameObject> tempEnemies;
         if (deadEnemies.ContainsKey(enemy.name))
         {
+            tempEnemies = deadEnemies[enemy.name];
+            return tempEnemies.Dequeue();
             //return 
+        }
+        else
+        {
+            return null;
         }
     }
 
