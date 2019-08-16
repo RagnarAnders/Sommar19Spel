@@ -40,7 +40,7 @@ public class Player : StateMachine
         lives--;
         if(lives == 0)
         { 
-            GameController.instance.GameOver();
+            GameController.Instance.GameOver();
             Died();
         }
     }
@@ -48,7 +48,8 @@ public class Player : StateMachine
 
     public void Died()
     {
-        Destroy(gameObject);
+        enabled = false;
+        //Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

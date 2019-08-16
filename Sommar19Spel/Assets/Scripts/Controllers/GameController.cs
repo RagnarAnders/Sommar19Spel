@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-
-    public static GameController instance;
-    public int Score { get; set; }
-
+    private Text text;
+    private int score;
     private int PlayerLives;
 
+    public static GameController Instance { get; private set; }
+    
     [SerializeField] private GameObject pauseMenu;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
+        text = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        score = 0;
     }
 
     private void Update()
@@ -62,17 +65,25 @@ public class GameController : MonoBehaviour
 
     private void HandleHighscore()
     {
-        Score = HighScore.HighscoreReference.score;
         if (PlayerPrefs.HasKey("Highscore"))
         {
-            if(Score > PlayerPrefs.GetInt("Highscore"))
+            if(score > PlayerPrefs.GetInt("Highscore"))
             {
-                PlayerPrefs.SetInt("Highscore", Score);
+                PlayerPrefs.SetInt("Highscore", score);
             }
         }
         else
         {
-            PlayerPrefs.SetInt("Highscore", Score);
+            PlayerPrefs.SetInt("Highscore", score);
+        }
+    }
+
+    public void UpdateScore(int addScore)
+    {
+        score += addScore;
+        if (text != null)
+        {
+            text.text = "Score: " + score.ToString();
         }
     }
 }

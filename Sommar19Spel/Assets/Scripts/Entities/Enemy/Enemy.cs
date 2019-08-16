@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour
             Rotate();
             Move();
         }
-      
     }
 
     private void Move()
@@ -50,6 +49,6 @@ public class Enemy : MonoBehaviour
 
     public void OnDisable()
     {
-        HighScore.HighscoreReference.UpdateScore(1);
+        GameController.Instance.UpdateScore(1);
     }
 }

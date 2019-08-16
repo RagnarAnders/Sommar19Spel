@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallShot : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float speedIncrease;
     Vector2 Velocity;
     Vector2 direction;
 
@@ -14,13 +16,11 @@ public class SmallShot : MonoBehaviour
 
     void Start()
     {
-
         direction = Player.PlayerReference.transform.up;
     }
 
     void Update()
     {
-  
         transform.position += transform.up * speed * Time.deltaTime;
 
         Ray2D ray = new Ray2D(transform.position, transform.up);
@@ -31,7 +31,11 @@ public class SmallShot : MonoBehaviour
             float rot = Mathf.Atan2(v.x, v.y) * Mathf.Rad2Deg;
             transform.up = v;
             counter++;
-            speed += 0.5f;
+            speed += speedIncrease;
+        }
+        if (speed > maxSpeed)
+        {
+            speed = maxSpeed;
         }
     }
 
@@ -52,10 +56,6 @@ public class SmallShot : MonoBehaviour
                 Player.PlayerReference.Damaged();
                 Destroy(gameObject);
             }
-         
-
         }
-
-
     }
 }

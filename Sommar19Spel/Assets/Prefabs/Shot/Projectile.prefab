@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6559309965738520741}
   - component: {fileID: -8209665863029790101}
   m_Layer: 0
-  m_Name: Small Shot
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  maxSpeed: 25
+  speedIncrease: 0.25
   collisionMask:
     serializedVersion: 2
     m_Bits: 256
