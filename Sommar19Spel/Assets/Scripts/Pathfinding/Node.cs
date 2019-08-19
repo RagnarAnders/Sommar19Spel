@@ -19,6 +19,4 @@ public class Node
         this.position = position;
         this.walkable = walkable;
     }
-
-
 }

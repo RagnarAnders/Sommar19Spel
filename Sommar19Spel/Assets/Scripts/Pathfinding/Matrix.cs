@@ -5,6 +5,7 @@ using UnityEngine;
 public class Matrix : MonoBehaviour
 {
     private int x, y;
+    private Dictionary<int, Dictionary<int, Node>> matrix = new Dictionary<int, Dictionary<int, Node>>();
     public Node[][] matrixNodes;
 
     Grid grid;
