@@ -10,13 +10,26 @@ public enum NodeValue
 
 public class Node
 {
-    Vector2 position;
-    NodeValue walkable;
-    private List<Node> nodes;
+    private GameObject go;
+    private NodeValue walkable;
+    private List<Node> connections;
 
-    public Node(Vector2 position, NodeValue walkable)
+    public Node(GameObject go, NodeValue walkable)
     {
-        this.position = position;
+        this.go = go;
         this.walkable = walkable;
+    }
+
+    public void AddConnection(Node connection)
+    {
+        if (connections == null)
+        {
+            connections = new List<Node>();
+        }
+        connections.Add(connection);
+    }
+
+    public GameObject GetGameObject() {
+        return go;
     }
 }
