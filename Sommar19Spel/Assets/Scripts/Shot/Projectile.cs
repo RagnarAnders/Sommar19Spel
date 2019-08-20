@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float maxSpeed;
     [SerializeField] private float speedIncrease;
+    [SerializeField] private AudioClip bounceSound;
     Vector2 Velocity;
     Vector2 direction;
 
@@ -32,6 +33,8 @@ public class Projectile : MonoBehaviour
             transform.up = v;
             counter++;
             speed += speedIncrease;
+            SoundEvent sound = new SoundEvent(transform, bounceSound);
+            sound.FireEvent();
         }
         if (speed > maxSpeed)
         {

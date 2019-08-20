@@ -18,12 +18,12 @@ public class PlayerBaseState : State
 
     public override void Initialize(StateMachine owner)
     {
-        this.owner = (Player)owner;
+        //this.owner = (Player)owner;
     }
 
     public override void Enter()
     {
-        owner.Speed = speed;
+        //owner.Speed = speed;
         countDown = dashTimer;
     }
 
@@ -33,13 +33,13 @@ public class PlayerBaseState : State
         if (Input.GetKeyDown(KeyCode.LeftControl) || isDashing == true)
         {
             Debug.Log("Dashing");
-            owner.Speed = dashSpeed;
+            //owner.Speed = dashSpeed;
             isDashing = true;
             countDown -= Time.deltaTime;
             if (countDown <= 0)
             {
                 countDown = dashTimer;
-                owner.Speed = speed;
+                //owner.Speed = speed;
                 isDashing = false;
             }
         }
@@ -48,7 +48,7 @@ public class PlayerBaseState : State
     protected void Shoot(GameObject bullet, float fireSpeed)
     {
         fireRateTimer = fireRate;
-        ShootEvent se = new ShootEvent(Player.PlayerReference.SpawnPosition.transform.position, Player.PlayerReference.transform, fireSpeed, bullet);
+        ShootEvent se = new ShootEvent(Player.PlayerReference.SpawnPosition.transform.position, Player.PlayerReference.transform, bullet);
         se.FireEvent();
     }
 }

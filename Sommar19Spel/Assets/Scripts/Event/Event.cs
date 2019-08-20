@@ -71,11 +71,10 @@ public class ShootEvent : Event<ShootEvent>
     /// <param name="speed"> How fast it should go</param>
     /// <param name="bullet"> The bullet itself</param>
     /// <param name="fireRate"> How fast or slow firerate</param>
-    public ShootEvent(Vector2 spawnPosition, Transform transform , float speed, GameObject bullet)
+    public ShootEvent(Vector2 spawnPosition, Transform transform , GameObject bullet)
     {
         SpawnPosition = spawnPosition;
         Transform = transform;
-        Speed = speed;
         Bullet = bullet;
     }
 }

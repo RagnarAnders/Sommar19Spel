@@ -4,21 +4,25 @@ using UnityEngine;
 
 public class SoundListener : EventListener<SoundEvent>
 {
-    //[SerializeField] private int amoutOfSounds;
-    //private static int number;
+    [SerializeField] private int amountOfSounds;
+    private static int amount;
     protected override void OnEvent(SoundEvent eventType)
     {
-        //varje gång ett ljud spelas så ska den plussa på i "number" och varje gång den slutas så ska den gå minus.
-        //så man kan hålla ett maximalt antal ljud
-        //if(number < amoutOfSounds)
-        //{
-            AudioSource.PlayClipAtPoint(eventType.audioClip, eventType.entity.position, 1.0f);
+        if(amount < amountOfSounds)
+        {
+            amount++;
+            AudioSource.PlayClipAtPoint(eventType.audioClip, eventType.entity.position, Random.Range(0.5f, 1.0f));
+            Invoke("Decrease", eventType.audioClip.length);
+        }
+        else
+        {
+            return;
+        }
         
-        //    number++;
-        //}
-        //else
-        //{
+    }
 
-        //}
+    private void Decrease()
+    {
+        amount--;
     }
 }

@@ -21,7 +21,7 @@ public class Rifle : PlayerBaseState
         }
         else if (Input.GetKeyDown(KeyCode.Tab))
         {
-            owner.Transition<GrenadeLauncher>();
+            //owner.Transition<GrenadeLauncher>();
         }
         base.HandleUpdate();
     }

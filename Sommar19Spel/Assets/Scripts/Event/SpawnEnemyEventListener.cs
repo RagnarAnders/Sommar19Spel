@@ -16,13 +16,11 @@ public class SpawnEnemyEventListener : SpawnEventListener
         GameObject enemy = EnemyManager.EnemyManagerRef.GetEnemy(spawn.ObjectToSpawn);
         if (enemy == null)
         {
-            Debug.Log("New Enemey");
             GameObject go = Instantiate(spawn.ObjectToSpawn, GetRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY), Quaternion.identity);
             EnemyManager.EnemyManagerRef.AddAliveEnemies(go);
         }
         else
         {
-            Debug.Log("Old Enemey");
             enemy.transform.position = GetRandomPosition(spawn.StartX, spawn.EndX, spawn.StartY, spawn.EndY);
             enemy.GetComponent<NoDamageTimer>().enabled = true;
             enemy.GetComponent<Enemy>().enabled = false;

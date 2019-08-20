@@ -18,7 +18,7 @@ public class GrenadeLauncher : PlayerBaseState
         }
         else if (Input.GetKeyDown(KeyCode.Tab))
         {
-            owner.Transition<Rifle>();
+            //owner.Transition<Rifle>();
         }
         base.HandleUpdate();
     }

@@ -96,11 +96,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc922b15dcdd0bf4a9c212df11064f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  states:
-  - {fileID: 11400000, guid: e2ab0a5446d61b04b860f36ce8c7508c, type: 2}
-  - {fileID: 11400000, guid: 9af2429ba9aaa6a4ebafe2fb1085463d, type: 2}
-  currentState: {fileID: 0}
   spawnPosition: {fileID: 9071258142166837829}
+  fireRate: 0.1
+  fireSound: {fileID: 8300000, guid: 1fc6800fba332e945bce904d0511466b, type: 3}
+  bullet: {fileID: 7270976267844275086, guid: aa93a3a48f4385447a61d998618c93c9, type: 3}
+  speed: 5
   lives: 1
 --- !u!50 &5911529650445748308
 Rigidbody2D:
