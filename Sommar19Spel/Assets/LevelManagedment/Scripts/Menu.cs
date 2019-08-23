@@ -9,26 +9,36 @@ public class Menu : MonoBehaviour
 {
     public void OnPlayPressed()
     {
-        GameManager gameManager = Object.FindObjectOfType<GameManager>();
-        if(gameManager != null)
+        if(GameManager.Instance != null)
         {
-            gameManager.LoadNextLevel();
+            GameManager.Instance.LoadNextLevel();
         }
     }
 
     public void OnSettingsPressed()
     {
-
+        Menu settingsMenu = transform.parent.Find("SettingsMenu(Clone)").GetComponent<Menu>();
+        if(MenuManager.Instance != null && settingsMenu != null)
+        {
+            MenuManager.Instance.OpenMenu(settingsMenu);
+        }
     }
 
     public void OnCreditsPressed()
     {
-
+        Menu creditsScreen = transform.parent.Find("CreditsScreen(Clone)").GetComponent<Menu>();
+        if (MenuManager.Instance != null && creditsScreen != null)
+        {
+            MenuManager.Instance.OpenMenu(creditsScreen);
+        }
     }
 
     public void OnBackPressed()
     {
-
+        if(MenuManager.Instance != null)
+        {
+            MenuManager.Instance.CloseMenu();
+        }
     }
 }
 

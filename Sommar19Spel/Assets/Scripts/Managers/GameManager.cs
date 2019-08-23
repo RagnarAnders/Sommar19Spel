@@ -9,11 +9,27 @@ public class GameManager : MonoBehaviour
     private bool _isGameOver;
     public bool IsGameOver { get { return _isGameOver; } }
 
+    public static GameManager Instance { get => instance; }
+
     [SerializeField]
     private string nextLevelName;
 
     [SerializeField]
     private int nextLevelIndex;
+
+    private static GameManager instance;
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     // end the level
     public void EndLevel()

@@ -15,9 +15,29 @@ public class MenuManager : MonoBehaviour
 
     private Stack<Menu> menuStack = new Stack<Menu>();
 
+    private static MenuManager instance;
+
+    public static MenuManager Instance { get => instance; }
+
     private void Awake()
     {
-        InitializeMenus();
+        if(instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            InitializeMenus();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if(instance == this)
+        {
+            instance = null;
+        }
     }
 
     private void InitializeMenus()
