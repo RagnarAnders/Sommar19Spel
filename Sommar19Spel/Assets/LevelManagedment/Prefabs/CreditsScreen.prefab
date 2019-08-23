@@ -425,7 +425,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6996357476127865990}
+      - m_Target: {fileID: 2237096916298356541}
         m_MethodName: OnBackPressed
         m_Mode: 1
         m_Arguments:
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 4586056526051235503}
   - component: {fileID: 4586056526051235488}
   - component: {fileID: 4586056526051235489}
-  - component: {fileID: 6996357476127865990}
+  - component: {fileID: 2237096916298356541}
   m_Layer: 5
   m_Name: CreditsScreen
   m_TagString: Untagged
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6996357476127865990
+--- !u!114 &2237096916298356541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4586056526051235490}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07919adb446d73347ba960f462565aa9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bbe666d8c3090b4ea8b02d0e220167e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4586056526059752850

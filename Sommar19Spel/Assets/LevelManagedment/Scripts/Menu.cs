@@ -3,37 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
-[RequireComponent(typeof(Canvas))]
-public class Menu : MonoBehaviour
+public abstract class Menu<T>:Menu where T: Menu<T>
 {
-    public void OnPlayPressed()
+    private static T instance;
+    public static T Instance { get => instance;}
+
+    protected virtual void Awake()
     {
-        if(GameManager.Instance != null)
+        if(instance != null)
         {
-            GameManager.Instance.LoadNextLevel();
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = (T)this;
         }
     }
 
-    public void OnSettingsPressed()
+    protected virtual void OnDestroy()
     {
-        Menu settingsMenu = transform.parent.Find("SettingsMenu(Clone)").GetComponent<Menu>();
-        if(MenuManager.Instance != null && settingsMenu != null)
-        {
-            MenuManager.Instance.OpenMenu(settingsMenu);
-        }
+        instance = null;
     }
+}
+[RequireComponent(typeof(Canvas))]
+public abstract class Menu : MonoBehaviour
+{
 
-    public void OnCreditsPressed()
-    {
-        Menu creditsScreen = transform.parent.Find("CreditsScreen(Clone)").GetComponent<Menu>();
-        if (MenuManager.Instance != null && creditsScreen != null)
-        {
-            MenuManager.Instance.OpenMenu(creditsScreen);
-        }
-    }
-
-    public void OnBackPressed()
+    public virtual void OnBackPressed()
     {
         if(MenuManager.Instance != null)
         {

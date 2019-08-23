@@ -31,6 +31,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if(instance == this)
+        {
+            instance = null;
+        }
+    }
+
     // end the level
     public void EndLevel()
     {
