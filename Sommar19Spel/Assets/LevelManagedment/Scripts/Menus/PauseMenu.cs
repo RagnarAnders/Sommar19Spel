@@ -1,18 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Menu<PauseMenu>
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField]
+    private int mainMenuIndex = 0;
+
+    public void OnResumePressed()
     {
-        
+        Time.timeScale = 1;
+        base.OnBackPressed();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnRestartPressed()
     {
-        
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        base.OnBackPressed();
+    }
+
+    public void OnMainMenuPressed()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(mainMenuIndex);
+
+        MainMenu.Open();
+    }
+
+    public void OnQuitPressed()
+    {
+        Application.Quit();
     }
 }

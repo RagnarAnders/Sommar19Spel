@@ -19,7 +19,7 @@ public class Objective : MonoBehaviour
             part.FireEvent();
             SoundEvent sound = new SoundEvent(gameObject.transform, audio);
             sound.FireEvent();
-            GameController.Instance.UpdateScore(10);
+            GameManager.Instance.UpdateScore(10);
             Destroy(gameObject);
         }
         timer -= Time.deltaTime;

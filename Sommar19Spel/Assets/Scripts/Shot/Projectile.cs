@@ -50,7 +50,7 @@ public class Projectile : MonoBehaviour
             if(counter > 0)
             {
                 collider.gameObject.GetComponent<HealthComponent>().TakeDamage(50);
-                GameController.Instance.UpdateScore(counter);
+                GameManager.Instance.UpdateScore(counter);
             }
             ShakeCamera.ShakeCameraRef.Shake(0.01f, 0.2f);
             Destroy(gameObject);

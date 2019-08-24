@@ -1,14 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 
 
 public class MenuManager : MonoBehaviour
 {
-    public MainMenu mainMenuPrefab;
-    public SettingsMenu settingsMenuPrefab;
-    public CreditsScreen creditsScreenPrefab;
+    [SerializeField]
+    private MainMenu mainMenuPrefab;
+    private SettingsMenu settingsMenuPrefab;
+    [SerializeField]
+    private CreditsScreen creditsScreenPrefab;
+    [SerializeField]
+    private GameMenu gameMenuPrefab;
+    [SerializeField]
+    private PauseMenu pauseMenuPrefab;
+    [SerializeField]
+    private LoseScreen loseScreenPrefab;
 
     [SerializeField]
     private Transform menuParent;
@@ -29,6 +38,7 @@ public class MenuManager : MonoBehaviour
         {
             instance = this;
             InitializeMenus();
+            Object.DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -47,11 +57,16 @@ public class MenuManager : MonoBehaviour
             GameObject menuParentObject = new GameObject("Menus");
             menuParent = menuParentObject.transform;
         }
+        Object.DontDestroyOnLoad(menuParent.gameObject);
 
-        Menu[] menuPrefabs = { mainMenuPrefab, settingsMenuPrefab, creditsScreenPrefab };
 
-        foreach (Menu prefab in menuPrefabs)
+        BindingFlags myFlags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly;
+
+        FieldInfo[] fields = this.GetType().GetFields(myFlags);
+
+        foreach (FieldInfo field in fields)
         {
+            Menu prefab = field.GetValue(this) as Menu; 
             if (prefab != null)
             {
                 Menu menuInstance = Instantiate(prefab, menuParent);

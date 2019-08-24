@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
         lives--;
         if(lives == 0)
         { 
-            GameController.Instance.GameOver();
+            GameManager.Instance.GameOver();
             Died();
         }
     }

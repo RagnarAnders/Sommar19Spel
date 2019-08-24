@@ -47,9 +47,4 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        GameController.Instance.UpdateScore(1);
-        //EnemyManager.EnemyManagerRef.AddDeadEnemiesToDictionary(gameObject, Name);
-    }
 }

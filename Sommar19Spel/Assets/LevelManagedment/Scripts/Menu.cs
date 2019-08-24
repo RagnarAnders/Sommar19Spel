@@ -24,6 +24,14 @@ public abstract class Menu<T>:Menu where T: Menu<T>
     {
         instance = null;
     }
+
+    public static void Open()
+    {
+        if(MenuManager.Instance != null && Instance != null)
+        {
+            MenuManager.Instance.OpenMenu(instance);
+        }
+    }
 }
 [RequireComponent(typeof(Canvas))]
 public abstract class Menu : MonoBehaviour
