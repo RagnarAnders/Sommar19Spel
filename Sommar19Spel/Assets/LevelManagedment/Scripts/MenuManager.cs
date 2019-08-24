@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
+using UnityEngine.SceneManagement;
 
 
 
@@ -70,14 +71,30 @@ public class MenuManager : MonoBehaviour
             if (prefab != null)
             {
                 Menu menuInstance = Instantiate(prefab, menuParent);
-                if (prefab != mainMenuPrefab)
+                //Startar från game scene
+                if(SceneManager.GetActiveScene().buildIndex != 0)
                 {
-                    menuInstance.gameObject.SetActive(false);
+                    if(prefab != gameMenuPrefab)
+                    {
+                        menuInstance.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        OpenMenu(gameMenuPrefab);
+                    }
                 }
                 else
                 {
-                    OpenMenu(menuInstance);
+                    if (prefab != mainMenuPrefab)
+                    {
+                        menuInstance.gameObject.SetActive(false);
+                    }
+                    else if (SceneManager.GetActiveScene().buildIndex != 0)
+                    {
+                        OpenMenu(menuInstance);
+                    }
                 }
+        
             }
         }
     }
