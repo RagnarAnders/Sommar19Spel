@@ -9,7 +9,7 @@ public class BackgroundMusic : MonoBehaviour
     Random rnd;
     private void Awake()
     {
-        if(rnd == null)
+        if (rnd == null)
         {
             rnd = new Random();
         }
@@ -29,6 +29,6 @@ public class BackgroundMusic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

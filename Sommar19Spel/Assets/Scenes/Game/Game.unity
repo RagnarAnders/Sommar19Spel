@@ -5954,7 +5954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &757582408
 Transform:
   m_ObjectHideFlags: 0
@@ -6079,26 +6079,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 8300000, guid: 17f3fba32ee670a40ae9e358894d72c6, type: 3}
-  - {fileID: 8300000, guid: d62c40403a1ea6940991a88e43ad08ef, type: 3}
-  - {fileID: 8300000, guid: 8361554b33cbf3f47843d4c1de408492, type: 3}
-  - {fileID: 8300000, guid: 42bfc819ae3501147aa28645777ffd3e, type: 3}
-  - {fileID: 8300000, guid: ce1d2105cb70f67419dcf4fdaf10e665, type: 3}
-  - {fileID: 8300000, guid: 0baa9c72019f2af48b4bc91b91eed44c, type: 3}
-  - {fileID: 8300000, guid: d299347c1a15bf64ca11e2f61aa662eb, type: 3}
-  - {fileID: 8300000, guid: 7dd6f0a1eed6f244890e659f341ff120, type: 3}
-  - {fileID: 8300000, guid: 8e5055b1503e64e468b3ed2d4c93b94c, type: 3}
-  - {fileID: 8300000, guid: e1c2bd5f37714354691d6e9c4909061d, type: 3}
-  - {fileID: 8300000, guid: 1df770a47629dd24f98ace0e08c2b2c6, type: 3}
-  - {fileID: 8300000, guid: 099d7d41cce80a64c875bf7492b8658d, type: 3}
-  - {fileID: 8300000, guid: c5666e54e951cbd41bc28ef4cb60026d, type: 3}
-  - {fileID: 8300000, guid: c41aeb5d929416749a791ffcde54700f, type: 3}
-  - {fileID: 8300000, guid: c7fd5561b1cc03241b8cadc5471e1523, type: 3}
-  - {fileID: 8300000, guid: 9b7fe7a8d00bfff4e91eb67ee2a737f6, type: 3}
-  - {fileID: 8300000, guid: 900859b2ce0a76e4998957a2b1bb2999, type: 3}
-  - {fileID: 8300000, guid: b829c822fe6723b47a93ac9d39cca78e, type: 3}
-  - {fileID: 8300000, guid: acb20f153037a8441b160a5178dacc8f, type: 3}
-  - {fileID: 8300000, guid: 361304dedb2d13342b32c945426b50d4, type: 3}
-  - {fileID: 8300000, guid: 2fee54d298ccb73408ce9460e7bb3187, type: 3}
 --- !u!1 &774154371 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9071258142166837829, guid: 2e5a76f5a2f9e6843bf5d5a9685dad0e,
@@ -6309,7 +6289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744c39f875dc64f478da12fa40803dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
 --- !u!4 &1388039987
 Transform:
   m_ObjectHideFlags: 0

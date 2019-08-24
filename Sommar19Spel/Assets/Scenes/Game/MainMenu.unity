@@ -165,8 +165,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuPrefab: {fileID: -984752508483910205, guid: cbc3dae8e64b87b4f9e468a9e19625c5,
     type: 3}
-  settingsMenuPrefab: {fileID: -1038382537680367872, guid: 551d8470cec327142b9d4749687b932e,
-    type: 3}
   creditsScreenPrefab: {fileID: 2237096916298356541, guid: 0cf8e32f538faf9469db343ff3629219,
     type: 3}
   gameMenuPrefab: {fileID: 5806757267871980339, guid: 84d5180afeb6fb24eb2d58d2d5fdebfe,
@@ -318,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1611644973
 AudioSource:
   m_ObjectHideFlags: 0
