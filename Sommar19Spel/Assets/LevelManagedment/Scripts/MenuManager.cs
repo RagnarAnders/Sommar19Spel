@@ -72,7 +72,7 @@ public class MenuManager : MonoBehaviour
             {
                 Menu menuInstance = Instantiate(prefab, menuParent);
                 //Startar från game scene
-                if(SceneManager.GetActiveScene().buildIndex != 0)
+                if(SceneManager.GetActiveScene().buildIndex != 1)
                 {
                     if(prefab != gameMenuPrefab)
                     {

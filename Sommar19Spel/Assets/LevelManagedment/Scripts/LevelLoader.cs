@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    private static int mainMenuIndex = 0;
+    private static int mainMenuIndex = 1;
 
     public static void LoadLevel(string levelName)
     {
