@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField]
     private MainMenu mainMenuPrefab;
+    [SerializeField]
     private SettingsMenu settingsMenuPrefab;
     [SerializeField]
     private CreditsScreen creditsScreenPrefab;

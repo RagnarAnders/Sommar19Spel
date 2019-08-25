@@ -5,10 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : Menu<PauseMenu>
 {
-
-    [SerializeField]
-    private int mainMenuIndex = 0;
-
     public void OnResumePressed()
     {
         Time.timeScale = 1;
@@ -25,7 +21,7 @@ public class PauseMenu : Menu<PauseMenu>
     public void OnMainMenuPressed()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(mainMenuIndex);
+        LevelLoader.LoadMainMenuLevel();
 
         MainMenu.Open();
     }
