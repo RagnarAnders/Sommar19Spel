@@ -406,6 +406,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0727cb08ca01db547ac6ead3e076f1ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playDelay: 0.5
+  startTransitionPrefab: {fileID: 3335883919548491254, guid: 75f9833292f4ce44fbb7c3e3ee7abcb6,
+    type: 3}
 --- !u!1 &8518754249968954054
 GameObject:
   m_ObjectHideFlags: 0

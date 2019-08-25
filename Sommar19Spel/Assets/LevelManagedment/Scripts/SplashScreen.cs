@@ -32,7 +32,7 @@ public class SplashScreen : MonoBehaviour
         screenFader.FadeOff();
         LevelLoader.LoadMainMenuLevel();
 
-        yield return new WaitForSeconds(screenFader.FadeDuration);
+        yield return new WaitForSeconds(screenFader.FadeOnDuration);
 
         Destroy(gameObject);
     }
