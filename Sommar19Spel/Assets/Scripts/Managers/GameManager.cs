@@ -40,8 +40,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
 
-        StartCoroutine(LoseRoutine());
-
+        LoseGame();
     }
 
     private IEnumerator LoseRoutine()
@@ -54,6 +53,11 @@ public class GameManager : MonoBehaviour
         LoseScreen.Open();
     }
 
+    private void LoseGame()
+    {
+        Time.timeScale = 0;
+        LoseScreen.Open();
+    }
 
     public void UpdateScore(int i)
     {

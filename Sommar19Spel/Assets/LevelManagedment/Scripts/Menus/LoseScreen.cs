@@ -7,6 +7,7 @@ public class LoseScreen : Menu<LoseScreen>
 {
     public void OnRestartPressed()
     {
+        Debug.Log("OnRestartPressed");
         base.OnBackPressed();
         Time.timeScale = 1;
         LevelLoader.ReloadLevel();
