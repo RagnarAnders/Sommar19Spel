@@ -13,9 +13,12 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance;
 
+    [SerializeField]
+    private TransitionFader endTransitionPrefab;
+
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
         }
@@ -28,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        if(instance == this)
+        if (instance == this)
         {
             instance = null;
         }
@@ -36,9 +39,21 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+
+        StartCoroutine(LoseRoutine());
+
+    }
+
+    private IEnumerator LoseRoutine()
+    {
+        TransitionFader.PlayTransition(endTransitionPrefab);
+
+        float fadeDelay = (endTransitionPrefab != null) ? endTransitionPrefab.Delay + endTransitionPrefab.FadeOnDuration : 0f;
+        yield return new WaitForSeconds(fadeDelay);
         Time.timeScale = 0;
         LoseScreen.Open();
     }
+
 
     public void UpdateScore(int i)
     {
@@ -47,6 +62,6 @@ public class GameManager : MonoBehaviour
     // end the level
 
 
-   
+
 
 }

@@ -8,6 +8,7 @@ public class TransitionFader : ScreenFader
     private float lifetime = 1f;
     [SerializeField]
     private float delay = 0.3f;
+    public float Delay { get { return delay; } }
 
     protected void Awake()
     {

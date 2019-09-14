@@ -29,6 +29,7 @@ public abstract class Menu<T>:Menu where T: Menu<T>
     {
         if(MenuManager.Instance != null && Instance != null)
         {
+            Debug.Log("Open");
             MenuManager.Instance.OpenMenu(instance);
         }
     }

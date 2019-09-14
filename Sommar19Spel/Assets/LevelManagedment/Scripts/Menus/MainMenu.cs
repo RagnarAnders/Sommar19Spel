@@ -20,6 +20,7 @@ public class MainMenu : Menu<MainMenu>
         TransitionFader.PlayTransition(startTransitionPrefab);
         LevelLoader.LoadNextLevel();
         yield return new WaitForSeconds(playDelay);
+        Debug.Log("PlayPressed");
         GameMenu.Open();
     }
 

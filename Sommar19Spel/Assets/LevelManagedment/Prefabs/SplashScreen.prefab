@@ -274,7 +274,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   solidAlpha: 1
   clearAlpha: 0
-  fadeDuration: 1
+  fadeOnDuration: 0.5
+  fadeOffDuration: 0.5
   graphicsToFade:
   - {fileID: 2540377712046963031}
   - {fileID: 2540377711299265941}
